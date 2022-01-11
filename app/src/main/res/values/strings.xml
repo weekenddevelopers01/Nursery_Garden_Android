@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Nursery Garden Android</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="txt_login">Log in</string>
+    <string name="txt_forget_password">Forget Password</string>
+    <string name="title_activity_register">Register_Activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_register">Register</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_create_profile">Create Profile</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_user">Account</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_cart">Cart</string>
+
+    <string name="sample_description">Description
+Holy basil is an aromatic annual or short-lived pernnial or subshrub in the Lamiaceae (mint) family. It is native to tropical and subtropical regions of Southern Asia. The genus name comes from the Greek word okimon which means aromatic herb.
+
+While holy basil is a close relative of culinary basil, its leaves tend to have a purple cast, its flowers are not as large, and it is shorter-lived.  This erect multistemmed subshrub grows rapidly to a height of 3 feet and easily propagates itself by seed.
+
+It prefers full sun in moist, well drained soil.  While it tolerates a wide variety of soil types and pH conditions it does poorly in water logged soils.
+
+Plant it in a sensory or herb garden to enjoy its spicy fragrance but place it in a confined area or container to manage its spread.</string>
+    <string name="title_profile">Profile</string>
+    <string name="btn_save">Save</string>
+    <string name="txt_edit_profile">Edit Profile</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_address">Address</string>
+    <string name="title_wishlist">WishList</string>
+    <string name="plz_wait_dialog_bar">Please wait...!</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_city">City</string>
+    <string name="hint_state">State</string>
+    <string name="btn_address">Add Address</string>
+</resources>

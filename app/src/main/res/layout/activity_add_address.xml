@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    tools:context=".ui.activity.AddAddressActivity">
+    <LinearLayout
+        android:id="@+id/action_bar"
+        android:layout_marginVertical="@dimen/actionbar_margin_vertical"
+        android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
+        android:translationZ="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:onClick="back_onclik"
+            android:id="@+id/back_btn"
+            android:padding="@dimen/actionbar_btn_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_arrow_bg"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24_white"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Address"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="@dimen/title_font_size"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_margin="@dimen/defalut_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/edit_txt_name"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="@string/hint_name"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:padding="@dimen/edit_txt_padding"
+                    android:background="@drawable/edit_txt_bg"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/edit_txt_address"
+                    android:inputType="text|textMultiLine"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="@string/hint_address"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:padding="@dimen/edit_txt_padding"
+                    android:background="@drawable/edit_txt_bg"
+                    android:layout_height="100dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_txt_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:background="@drawable/edit_txt_bg"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="@string/hint_city"
+                    android:padding="@dimen/edit_txt_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_txt_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:background="@drawable/edit_txt_bg"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="@string/hint_state"
+                    android:padding="@dimen/edit_txt_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_txt_zipcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:background="@drawable/edit_txt_bg"
+                    android:inputType="number"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="Zip Code"
+                    android:padding="@dimen/edit_txt_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_txt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/defalut_margin"
+                    android:background="@drawable/edit_txt_bg"
+                    android:inputType="number"
+                    android:drawablePadding="@dimen/defalut_padding"
+                    android:hint="@string/hint_phone"
+                    android:padding="@dimen/edit_txt_padding" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:onClick="add_address_onClick"
+                android:id="@+id/btn_register"
+                android:textAllCaps="false"
+                android:layout_width="@dimen/btn_width"
+                android:paddingLeft="@dimen/defalut_padding"
+                android:paddingRight="@dimen/defalut_padding"
+                android:layout_height="@dimen/btn_height"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/defalut_margin"
+                android:background="@drawable/round_btn_bg"
+                android:text="@string/btn_address"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/primaryColor" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+</RelativeLayout>

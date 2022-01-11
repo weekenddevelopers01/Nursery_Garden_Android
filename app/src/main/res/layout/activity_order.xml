@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.OrderActivity">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/action_bar"
+        android:layout_marginVertical="@dimen/actionbar_margin_vertical"
+        android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
+        android:translationZ="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:onClick="back_onclik"
+            android:id="@+id/back_btn"
+            android:padding="@dimen/actionbar_btn_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_arrow_bg"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24_white"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_orders"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="@dimen/title_font_size"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/bar"
+        android:background="@color/grey"
+        android:layout_below="@id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_below="@id/bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/type_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Showing"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/type"
+                    android:layout_toRightOf="@id/type_head"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All Orders"/>
+
+                <Button
+                    android:padding="2dp"
+                    android:background="@drawable/outlined_btn_bg"
+                    android:drawableLeft="@drawable/ic_baseline_filter_alt_24"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:text="Filter"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No order Details"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/normal_font_size"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    android:padding="@dimen/defalut_padding"
+    android:background="@color/white"
+    android:id="@+id/container"
+    tools:context=".ui.activity.MainActivity">
+    
+    
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_emil"
+                android:drawableLeft="@drawable/ic_outline_email_24"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_email"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_password"
+                android:drawableLeft="@drawable/ic_outline_lock_24"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_password"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/txt_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/txt_forget_password"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btn_login"
+            android:textAllCaps="false"
+            android:layout_width="@dimen/btn_width"
+            android:paddingLeft="@dimen/defalut_padding"
+            android:paddingRight="@dimen/defalut_padding"
+            android:layout_height="@dimen/btn_height"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/defalut_margin"
+            android:background="@drawable/round_btn_bg"
+            android:text="@string/txt_login"
+            android:textColor="@color/white"
+            android:onClick="btn_login_onClick"
+            app:backgroundTint="@color/primaryColor" />
+        <FrameLayout
+            android:layout_marginBottom="@dimen/defalut_margin"
+            android:layout_margin="@dimen/defalut_padding"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black"/>
+
+        <TextView
+            android:padding="@dimen/defalut_padding"
+            android:background="@drawable/bg_ripple_effort"
+            android:id="@+id/txt_register"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="register_onClick"
+            android:text="Register"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="@dimen/normal_font_size"
+            android:textColor="@color/primaryColor"/>
+
+
+
+
+    </LinearLayout>
+
+
+    
+
+</RelativeLayout>

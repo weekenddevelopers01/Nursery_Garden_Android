@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.EditProfileActivity">
+
+
+    <LinearLayout
+        android:id="@+id/action_bar"
+        android:layout_marginVertical="@dimen/actionbar_margin_vertical"
+        android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
+        android:translationZ="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:onClick="back_onclik"
+            android:id="@+id/back_btn"
+            android:padding="@dimen/actionbar_btn_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_arrow_bg"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24_white"/>
+
+        <TextView
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_edit_profile"
+            android:layout_gravity="center"
+            android:textSize="@dimen/title_font_size"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:padding="@dimen/defalut_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_fname"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_first_name"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_lname"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_last_name"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_emil"
+                android:drawableLeft="@drawable/ic_outline_email_24"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_email"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:hintEnabled="false"
+            app:boxBackgroundMode="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_txt_phone"
+                android:drawableLeft="@drawable/ic_outline_phone_android_24"
+                android:drawablePadding="@dimen/defalut_padding"
+                android:hint="@string/hint_phone"
+                android:inputType="phone"
+                android:layout_marginBottom="@dimen/defalut_margin"
+                android:padding="@dimen/edit_txt_padding"
+                android:background="@drawable/edit_txt_bg"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:onClick="save_onclik"
+            android:textAllCaps="false"
+            android:layout_width="@dimen/btn_width"
+            android:paddingLeft="@dimen/defalut_padding"
+            android:paddingRight="@dimen/defalut_padding"
+            android:layout_height="@dimen/btn_height"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/defalut_margin"
+            android:background="@drawable/round_btn_bg"
+            android:text="@string/btn_save"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primaryColor" />
+
+        <Button
+            android:background="@drawable/outlined_btn_bg"
+            android:textColor="@color/primaryColor"
+            android:fontFamily="serif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Change Password"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.fragment.home.HomeFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/seach_toolbar"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="parent"
+        android:background="@drawable/app_bar_bg"
+        app:menu="@menu/app_bar_with_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Rajesh"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingRight="16dp"/>
+
+        <androidx.appcompat.widget.SearchView
+            app:iconifiedByDefault="false"
+            android:background="@drawable/edit_txt_bg"
+            android:clickable="true"
+            app:queryBackground="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/seach_toolbar"
+                    android:paddingHorizontal="10dp"
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+</RelativeLayout>

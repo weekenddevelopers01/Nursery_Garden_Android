@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/corner_radius"
+    android:layout_margin="@dimen/actionbar_margin_vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="225dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_above="@id/name"
+            android:scaleType="fitXY"
+            android:src="@drawable/snake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:fontFamily="monospace"
+            android:paddingTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:id="@+id/name"
+            android:layout_above="@id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rain lilly"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
+            android:id="@+id/price"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₹ 789"
+            android:gravity="center_horizontal" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
