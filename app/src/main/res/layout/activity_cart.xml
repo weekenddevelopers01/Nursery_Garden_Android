@@ -5,7 +5,17 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container"
     tools:context=".ui.activity.CartActivity">
+
+
+    <TextView
+        android:id="@+id/emptyCartHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Cart is empty"
+        android:visibility="gone"/>
 
 
     <LinearLayout
@@ -43,218 +53,162 @@
         android:background="@color/grey" />
 
 
-    <ScrollView
-        android:layout_below="@id/bar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bar"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/bar">
+            android:paddingHorizontal="10dp" />
+
+        <LinearLayout
+            android:id="@+id/priceDetailContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
+            android:layout_marginTop="@dimen/actionbar_margin_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/actionbar_margin_horizontal"
+                android:text="PRICE DETAILS"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/action_bar"
-                android:orientation="vertical">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"
-                    android:layout_below="@id/action_bar"
-                    android:background="@color/grey" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/bar"
-                    android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:id="@+id/deliveryto"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Delivery to : " />
-
-                        <TextView
-                            android:id="@+id/delivery_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/deliveryto"
-                            android:text="Rajesh, 612001"
-                            android:textColor="@color/black"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/deliveryto"
-                            android:text="Chennai one, 200ft Road, thoraipakkam"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/change"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Change"
-                            android:textColor="@color/pink"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"
-                    android:layout_below="@id/action_bar"
-                    android:background="@color/grey" />
-
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
-                android:layout_alignParentBottom="true"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_marginBottom="@dimen/actionbar_margin_horizontal"
-                    android:text="PRICE DETAILS"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey"/>
-                <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total MRP"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total MRP"/>
-                    <TextView
-                        android:gravity="end"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="$4000"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Discount on MRP"/>
-                    <TextView
-                        android:gravity="end"
-                        android:textColor="@color/pink"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=" - $400"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Convenience Fee"/>
-                    <TextView
-                        android:gravity="end"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=" - $0.99"/>
-                </LinearLayout>
-
-                <FrameLayout
-                    android:layout_marginVertical="@dimen/actionbar_margin_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Amount"/>
-                    <TextView
-                        android:gravity="end"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="$3600.99"/>
-                </LinearLayout>
-
-
+                    android:gravity="end"
+                    android:text="$4000"
+                    android:textColor="@color/black" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discount on MRP"
+                    android:textColor="@color/black" />
 
+                <TextView
+                    android:id="@+id/discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text=" - $400"
+                    android:textColor="@color/pink" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Convenience Fee"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/deliveryCharge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text=" - $0.99"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/actionbar_margin_horizontal"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Amount"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/grandTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="$3600.99"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
 
         </LinearLayout>
-    </ScrollView>
 
 
-
+    </LinearLayout>
 
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
+        android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:padding="10dp">
 
         <TextView
-            android:layout_centerVertical="true"
+            android:id="@+id/totalBanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:text="$3600"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <Button
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
             android:background="@color/pink"
+            android:onClick="placeOrder"
+            android:padding="@dimen/edit_txt_padding"
             android:text="PLACE ORDER"
-            android:padding="@dimen/edit_txt_padding"/>
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 

@@ -1,6 +1,5 @@
 package com.example.nurserygardenandroid.utils
 
-import com.example.nurserygardenandroid.model.ApiError
 import com.google.gson.GsonBuilder
 import okhttp3.ResponseBody
 

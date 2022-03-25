@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.nurserygardenandroid.R
-import com.example.nurserygardenandroid.model.*
 import com.example.nurserygardenandroid.model.user.UserAuth
 import com.example.nurserygardenandroid.model.user.UserLogin
 import com.example.nurserygardenandroid.network.NetworkLayer
@@ -15,6 +14,7 @@ import com.example.nurserygardenandroid.repository.ProductRepository
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.utils.Constants
 import com.example.nurserygardenandroid.utils.ErrorUtils
+import com.example.nurserygardenandroid.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Response
@@ -22,7 +22,7 @@ import retrofit2.Response
 class MainActivity : BaseActivity() {
 
 
-    val viewModel:ProductViewModel by lazy {
+    val viewModel: ProductViewModel by lazy {
         ViewModelProvider(this).get(ProductViewModel::class.java)
     }
 

@@ -36,8 +36,8 @@ class CustomAdapter(val activity: FragmentActivity?, val list: ArrayList<Questio
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val name = itemView.name
-        val price = itemView.price
+        val name = itemView.productName
+        val price = itemView.productPrice
 
     }
 }

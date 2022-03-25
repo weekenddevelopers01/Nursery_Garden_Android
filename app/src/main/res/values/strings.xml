@@ -59,4 +59,10 @@ Plant it in a sensory or herb garden to enjoy its spicy fragrance but place it i
     <string name="hint_city">City</string>
     <string name="hint_state">State</string>
     <string name="btn_address">Add Address</string>
+    <string name="title_orderSummary">Order Summary</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_order_detail">Order Details</string>
+    <string name="order_id">Order ID</string>
+    <string name="date">Date</string>
+    <string name="order_status">Order Status</string>
 </resources>

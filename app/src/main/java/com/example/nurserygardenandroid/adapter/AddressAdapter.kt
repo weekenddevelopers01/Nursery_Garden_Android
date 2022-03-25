@@ -12,7 +12,7 @@ import com.example.nurserygardenandroid.ui.activity.AddressActivity
 import com.example.nurserygardenandroid.ui.fragment.home.CustomAdapter
 import kotlinx.android.synthetic.main.address_list_item.view.*
 
-class AddressAdapter(val activity: Context, val list: ArrayList<Address>):
+class AddressAdapter(val activity: Context, val list: ArrayList<Address>, val isAddressSelection:Boolean):
     RecyclerView.Adapter<AddressAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,10 +28,18 @@ class AddressAdapter(val activity: Context, val list: ArrayList<Address>):
         holder.city.setText(item.city)
         holder.stateAndZipCode.setText(item.state+" - "+item.zipcode)
         holder.phone.setText(item.phone)
-        holder.delete.setOnClickListener({
-            var addressActivity:AddressActivity = activity as AddressActivity
+        holder.delete.setOnClickListener {
+            var addressActivity: AddressActivity = activity as AddressActivity
             addressActivity.deleteAddress(item._id!!)
-        })
+        }
+        holder.container.setOnClickListener{
+            if(isAddressSelection){
+                val addressActivity = activity as AddressActivity
+                addressActivity.toOrderSummary(item)
+            }
+        }
+
+
 
     }
 
@@ -45,6 +53,7 @@ class AddressAdapter(val activity: Context, val list: ArrayList<Address>):
         val stateAndZipCode = itemView.address_state_zipcode
         val phone = itemView.address_phone
         val delete = itemView.delete
+        val container = itemView.container
 
     }
 }

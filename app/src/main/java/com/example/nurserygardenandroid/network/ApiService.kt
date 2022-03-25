@@ -1,10 +1,8 @@
 package com.example.nurserygardenandroid.network
 
-import com.example.nurserygardenandroid.model.Products
-import com.example.nurserygardenandroid.model.user.Address
-import com.example.nurserygardenandroid.model.user.UserAuth
-import com.example.nurserygardenandroid.model.user.UserLogin
-import com.example.nurserygardenandroid.model.user.UserProfile
+import com.example.nurserygardenandroid.model.order.Order
+import com.example.nurserygardenandroid.model.products.Products
+import com.example.nurserygardenandroid.model.user.*
 import com.example.nurserygardenandroid.utils.Constants
 import retrofit2.Call
 import retrofit2.Response
@@ -52,10 +50,65 @@ interface ApiService {
     suspend fun getAddress(@Header(Constants.HEADER_AUTHORIZATION) authorization: String):Response<List<Address>>
 
     @DELETE("/user/address/{aid}")
-    fun deleteAddress(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path(Constants.QUERY_AID) aid:String): Call<UserProfile>
+    fun deleteAddress(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path(Constants.PATH_AID) aid:String): Call<UserProfile>
+
+    @PATCH("/user/wishlist")
+    fun addToWishlist(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Body wishListItem: WishListItem):Call<UserProfile>
+
+    @POST("/user/wishlist")
+    fun wishlistToCart(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Body wishListItem: WishListItem):Call<UserProfile>
+
+    @DELETE("/user/wishlist/{cid}")
+    fun removeFromWishlist(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path("cid") cid:String):Call<UserProfile>
 
 
+    /*
+        User cart items
+     */
+
+    @PATCH("/user/cart")
+    fun addCartItem(@Header (Constants.HEADER_AUTHORIZATION) authorization: String, @Body cartItem: CartItem): Call<UserProfile>
+
+    @POST("/user/cart/{op}/{cid}")
+    fun addRemoveQty(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path("op") op:String, @Path("cid") cid:String): Call<Products>
+
+    @DELETE("/user/cart/{cid}")
+    fun removeCartItem(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path("cid") cid:String): Call<UserProfile>
+
+    /*
+        Product related calls like getAll products, get only one products by its id
+     */
     @GET("/products")
     suspend fun getProducts(): Response<List<Products>>
+
+    @GET("/product/{pid}")
+    fun getSelectedProduct(@Path(Constants.PATH_PID) id:String): Call<Products>
+
+    @GET("/products/wishlist")
+    suspend fun getWishlist(@Header(Constants.HEADER_AUTHORIZATION) authorization: String): Response<List<Products>>
+
+    @GET("/products/cartlist")
+    suspend fun getCartList(@Header(Constants.HEADER_AUTHORIZATION) authorization: String): Response<List<Products>>
+
+
+    /**
+     * Order
+     */
+
+    @POST("/user/order")
+    fun placeOrder(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Body order:Order):Call<Order>
+
+
+    @GET("/user/order")
+    fun getOrderList(@Header(Constants.HEADER_AUTHORIZATION) authorization: String):Call<List<Order>>
+
+
+    @GET("/user/order/{oid}")
+    fun getOrder(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path(Constants.PATH_OID)id:String?):Call<Order>
+
+    @PATCH("/user/order/{oid}")
+    fun cancelOrder(@Header(Constants.HEADER_AUTHORIZATION) authorization: String, @Path(Constants.PATH_OID)id:String?, @Body map: Map<String,String>):Call<Order>
+
+
 
 }

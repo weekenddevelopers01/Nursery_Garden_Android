@@ -13,7 +13,7 @@ class AddressViewModel: ViewModel() {
     private val respository = UserRepository()
 
     private val _getAddress = MutableLiveData<List<Address>?>()
-    val getAddres: LiveData<List<Address>?> = _getAddress
+    val getAddress: LiveData<List<Address>?> = _getAddress
 
     fun refresh(authString: String){
         viewModelScope.launch {

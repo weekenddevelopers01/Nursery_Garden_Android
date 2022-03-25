@@ -1,16 +1,15 @@
 package com.example.nurserygardenandroid.network
 
-import com.example.nurserygardenandroid.model.ApiClient
-import com.example.nurserygardenandroid.model.Products
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.example.nurserygardenandroid.utils.ProdConstants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkLayer{
 
+
+    //.baseUrl("http://10.0.2.2:3003/") for localhost
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:3003/")
+        .baseUrl(ProdConstants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

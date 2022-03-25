@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.nurserygardenandroid.R
 import com.example.nurserygardenandroid.databinding.ActivityHome2Binding
+import com.example.nurserygardenandroid.model.Question
 import com.example.nurserygardenandroid.model.user.UserProfile
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
@@ -61,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
 
         })
@@ -69,11 +70,16 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun cartOnclick(item: android.view.MenuItem) {
-        if(item.itemId == R.id.cart){
-            var intent = Intent(this, ProductDetailActivity::class.java)
-            startActivity(intent)
+
+        when(item.itemId){
+            R.id.barwishlist -> startActivity(Intent(this, WishListActivity::class.java))
+            R.id.cart -> startActivity(Intent(this, CartActivity::class.java))
+
+
         }
     }
+
+
 
 
 

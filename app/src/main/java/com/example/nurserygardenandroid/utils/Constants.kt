@@ -11,9 +11,9 @@ class Constants {
         const val MOBILE = "MOBILE"
         const val ISPROFILED:String = "ISPROFILED"
         const val HEADER_AUTHORIZATION = "Authorization"
-        const val QUERY_AID="aid"
         const val BEARER = "Bearer "
         const val PARCELABLE_USER:String = "parcelable_user_after_login"
+        const val PARCELABLE_ADDRESS:String = "parcelable_address"
 
         //User profile Columns in server DB
         const val USERPROFILE_FNAME ="f_name"
@@ -21,6 +21,18 @@ class Constants {
         const val USERPROFILE_EMAIL ="email"
         const val USERPROFILE_ISVERIFIED ="isVerified"
         const val USERPROFILE_PHONE ="phone"
+
+        const val EXTRA_ORDER_ID = "order_id"
+
+        const val EXTRA_PRODUCTID = "PRODUCT_ID"
+        const val EXTRA_SELECT_ADDRESS = "SELECTADDRESSIND"
+
+
+        const val PATH_AID="aid"
+        const val PATH_PID="pid"
+        const val PATH_OID="oid"
+
+        const val RUPEE ="₹"
     }
 
 }

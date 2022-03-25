@@ -1,9 +1,6 @@
 package com.example.nurserygardenandroid.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.SyncStateContract
-import android.util.Log
 import android.widget.Toast
 import com.example.nurserygardenandroid.R
 import com.example.nurserygardenandroid.model.user.Address
@@ -31,25 +28,29 @@ class AddAddressActivity : BaseActivity() {
             edit_txt_name.text.toString(),
             edit_txt_address.text.toString(),
             edit_txt_city.text.toString(),
+            edit_txt_phone.text.toString(),
             edit_txt_state.text.toString(),
-            edit_txt_zipcode.text.toString(),
-            edit_txt_phone.text.toString())
+            edit_txt_zipcode.text.toString()
+            )
 
         if(isValid()){
+            showProgressBar("Adding Address...!")
             NetworkLayer.apiClient.addAddress(Constants.BEARER+SharedPref(this).getAuthToken(), address)
                 .enqueue(object : Callback<UserProfile>{
                     override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                         if (response.isSuccessful){
 
-                            Log.d("responseBody", response.body().toString())
                             Toast.makeText(this@AddAddressActivity, "Saved", Toast.LENGTH_SHORT).show()
+                            dismissProgressBar()
                             finish()
                         }else{
+                            dismissProgressBar()
                             Toast.makeText(this@AddAddressActivity, "Internal", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<UserProfile>, t: Throwable) {
+                        dismissProgressBar()
                         Toast.makeText(this@AddAddressActivity, "error", Toast.LENGTH_SHORT).show()
                     }
                 })

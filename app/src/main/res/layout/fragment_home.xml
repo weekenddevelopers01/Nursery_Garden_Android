@@ -9,39 +9,38 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/seach_toolbar"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="parent"
-        android:background="@drawable/app_bar_bg"
-        app:menu="@menu/app_bar_with_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_bar_bg"
+        app:layout_constraintBaseline_toBaselineOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:menu="@menu/app_bar_with_search">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingRight="16dp"
             android:text="Rajesh"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:paddingRight="16dp"/>
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.SearchView
-            app:iconifiedByDefault="false"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:background="@drawable/edit_txt_bg"
             android:clickable="true"
-            app:queryBackground="@android:color/transparent"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent" />
 
     </androidx.appcompat.widget.Toolbar>
 
 
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_below="@id/seach_toolbar"
-                    android:paddingHorizontal="10dp"
-                    android:id="@+id/recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seach_toolbar"
+        android:paddingHorizontal="10dp" />
 
 </RelativeLayout>

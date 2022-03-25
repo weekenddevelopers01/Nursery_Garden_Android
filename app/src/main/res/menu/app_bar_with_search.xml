@@ -2,9 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/wishlist"
+    <item android:id="@+id/barwishlist"
         android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="Cart"
+        android:onClick="cartOnclick"
         app:showAsAction="always"
         />
     <item android:id="@+id/cart"

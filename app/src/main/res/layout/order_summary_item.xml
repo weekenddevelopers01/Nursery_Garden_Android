@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_5dp"
+    android:layout_height="100dp">
+
+    <RelativeLayout
+        android:padding="@dimen/margin_5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/orderSummaryImage"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/orderSummaryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/orderSummaryImage"
+            android:text="ROse"
+            android:textSize="@dimen/fontsize_m"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/orderSummaryQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="78"
+            android:textSize="@dimen/fontsize_m"
+            android:layout_toRightOf="@id/orderSummaryImage"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/orderSummaryTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:text="789"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/fontsize_m" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

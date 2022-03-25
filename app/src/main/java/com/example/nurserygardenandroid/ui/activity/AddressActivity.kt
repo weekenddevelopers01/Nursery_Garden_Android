@@ -3,12 +3,12 @@ package com.example.nurserygardenandroid.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nurserygardenandroid.R
 import com.example.nurserygardenandroid.adapter.AddressAdapter
-import com.example.nurserygardenandroid.model.ProductViewModel
 import com.example.nurserygardenandroid.model.user.Address
 import com.example.nurserygardenandroid.model.user.UserProfile
 import com.example.nurserygardenandroid.network.NetworkLayer
@@ -21,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AddressActivity : AppCompatActivity() {
+class AddressActivity : BaseActivity() {
 
     val viewModel:AddressViewModel by lazy {
         ViewModelProvider(this).get(AddressViewModel::class.java)
@@ -30,8 +30,6 @@ class AddressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
-
-        recyclerView()
     }
 
     fun back_onclik(view: android.view.View) {
@@ -44,12 +42,15 @@ class AddressActivity : AppCompatActivity() {
     }
 
 
+
+
+
     open fun deleteAddress(_id:String){
         NetworkLayer.apiClient.deleteAddress(Constants.BEARER+SharedPref(this).getAuthToken(), _id)
             .enqueue(object : Callback<UserProfile>{
                 override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                     if(response.isSuccessful){
-                        recyclerView()
+                        recyclerView(intent.getBooleanExtra(Constants.EXTRA_SELECT_ADDRESS,false))
                     }else{
                         Toast.makeText(this@AddressActivity, ErrorUtils.errorBody(response.errorBody()!!), Toast.LENGTH_SHORT).show()
                     }
@@ -63,20 +64,45 @@ class AddressActivity : AppCompatActivity() {
             })
     }
 
+    override fun onStart() {
+        super.onStart()
+        recyclerView(intent.getBooleanExtra(Constants.EXTRA_SELECT_ADDRESS,false))
+    }
 
-    fun recyclerView(){
+
+    fun recyclerView(isAddressSelection:Boolean){
+
+        showProgressBar("Loading address")
+
         viewModel.refresh(Constants.BEARER+SharedPref(this).getAuthToken())
-        viewModel.getAddres.observe(this){response->
+        viewModel.getAddress.observe(this){response->
             if(response==null){
                 Toast.makeText(this, "null response", Toast.LENGTH_SHORT).show()
                 return@observe
             }
 
+            dismissProgressBar()
+
+            if(response.isEmpty()){
+                setVisibility()
+            }
             recycler_view.layoutManager = LinearLayoutManager(this)
-            val adapter = AddressAdapter(this, response as ArrayList<Address>)
+            val adapter = AddressAdapter(this, response as ArrayList<Address>, isAddressSelection)
             recycler_view.adapter = adapter
             adapter.notifyDataSetChanged()
 
         }
+    }
+
+    fun setVisibility(){
+        emptyAddressHint.visibility = View.VISIBLE
+    }
+
+
+    fun toOrderSummary(address:Address){
+        intent = Intent(this, OrderSummaryActivity::class.java)
+        intent.putExtra(Constants.PARCELABLE_ADDRESS, address)
+        startActivity(intent)
+        finish()
     }
 }

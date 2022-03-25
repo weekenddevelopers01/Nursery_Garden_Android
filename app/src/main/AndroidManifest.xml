@@ -15,6 +15,12 @@
         android:theme="@style/Theme.NurseryGardenAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.activity.OrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.OrderSummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.AddAddressActivity"
             android:exported="false" />
         <activity android:name=".ui.activity.BaseActivity" />
