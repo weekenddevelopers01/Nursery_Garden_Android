@@ -52,7 +52,7 @@ class AddressActivity : BaseActivity() {
                     if(response.isSuccessful){
                         recyclerView(intent.getBooleanExtra(Constants.EXTRA_SELECT_ADDRESS,false))
                     }else{
-                        Toast.makeText(this@AddressActivity, ErrorUtils.errorBody(response.errorBody()!!), Toast.LENGTH_SHORT).show()
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
 
                 }

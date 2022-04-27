@@ -8,6 +8,7 @@
     android:padding="@dimen/defalut_padding"
     android:background="@color/white"
     android:id="@+id/container"
+
     tools:context=".ui.activity.MainActivity">
     
     

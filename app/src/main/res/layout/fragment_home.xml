@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:id="@+id/container"
     tools:context=".ui.fragment.home.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -26,6 +27,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/edit_txt_bg"

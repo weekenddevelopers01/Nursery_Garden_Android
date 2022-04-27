@@ -12,6 +12,7 @@ import com.example.nurserygardenandroid.model.order.Order
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import kotlinx.android.synthetic.main.activity_order_detail.*
 import kotlinx.android.synthetic.main.order_item.*
 import retrofit2.Call
@@ -49,6 +50,8 @@ class OrderDetailActivity : BaseActivity() {
 
                     if (response.body()!!.isDelivered){
                         order_description.text ="Order Delivered"
+                        cancel_order.visibility = View.GONE
+
                     }
                     if(response.body()!!.isCancelled){
                         cancel_order.visibility = View.GONE
@@ -59,6 +62,8 @@ class OrderDetailActivity : BaseActivity() {
                     var adapter = OrderSummaryAdapter(this@OrderDetailActivity, response.body()!!.orderItems)
                     orderSummaryRecyclerView.adapter = adapter
 
+                }else{
+                    showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                 }
                 dismissProgressBar()
             }
@@ -95,6 +100,7 @@ class OrderDetailActivity : BaseActivity() {
 
                         dismissProgressBar()
                     }else{
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                         dismissProgressBar()
                     }
 

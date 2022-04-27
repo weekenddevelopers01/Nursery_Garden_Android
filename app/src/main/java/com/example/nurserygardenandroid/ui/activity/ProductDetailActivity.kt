@@ -61,7 +61,7 @@ class ProductDetailActivity : BaseActivity() {
                         .into(pImage)
 
                 }else{
-                    Toast.makeText(this@ProductDetailActivity, "Can't load Product", Toast.LENGTH_SHORT).show()
+                    showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                 }
 
                 dismissProgressBar()
@@ -95,7 +95,7 @@ class ProductDetailActivity : BaseActivity() {
                     if (response.isSuccessful){
                         showSnackBar("Added to Cart", false);
                     }else{
-                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), false)
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
                 }
 
@@ -119,7 +119,7 @@ class ProductDetailActivity : BaseActivity() {
                     if(response.isSuccessful){
                         showSnackBar("added to cart", true)
                     }else{
-                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), false)
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
                 }
 

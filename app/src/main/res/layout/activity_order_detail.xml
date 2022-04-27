@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="@dimen/actionbar_margin_horizontal"
+    android:id="@+id/container"
     tools:context=".ui.activity.OrderDetailActivity">
 
 
@@ -61,15 +62,16 @@
                     android:text="@string/order_id"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
+
                 <TextView
                     android:id="@+id/order_date"
-                    android:layout_below="@+id/order_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/fontsize_m"
+                    android:layout_below="@+id/order_id"
                     android:text="@string/date"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontsize_m"
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/order_status"
                     android:layout_below="@+id/order_date"

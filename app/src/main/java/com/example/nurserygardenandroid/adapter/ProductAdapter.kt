@@ -11,6 +11,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
@@ -22,14 +24,17 @@ import com.example.nurserygardenandroid.utils.Constants
 import com.example.nurserygardenandroid.utils.ProdConstants
 import kotlinx.android.synthetic.main.product_list_item.view.*
 
-class ProductAdapter(val activity: FragmentActivity?, val list:List<Products>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(val activity: FragmentActivity?, val list:ArrayList<Products>): RecyclerView.Adapter<ProductAdapter.ViewHolder>(), Filterable {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(activity).inflate(R.layout.product_list_item, parent,false)
         return ViewHolder(v)
     }
 
+
+    var filteredList: ArrayList<Products> =  list
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = list.get(position)
+        val item = filteredList.get(position)
 
         holder.productName.setText(item.productName)
         holder.productPrice.setText(item.productPrice.toString())
@@ -51,7 +56,7 @@ class ProductAdapter(val activity: FragmentActivity?, val list:List<Products>): 
 
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int = filteredList.size
 
 
 
@@ -63,6 +68,37 @@ class ProductAdapter(val activity: FragmentActivity?, val list:List<Products>): 
         val productImage = itemView.productImage
 
     }
+
+    override fun getFilter(): Filter {
+        return object :Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                var charString = constraint.toString() ?: ""
+                if(charString.isEmpty() ){
+                    filteredList = list
+                }else{
+                    var filter = ArrayList<Products>();
+
+                    list.filter { (it.productName.lowercase().contains(constraint!!.toString().lowercase()))  }
+                        .forEach { filter.add(it)}
+                     filteredList = filter
+                }
+
+                return FilterResults().apply { values = filteredList }
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+               filteredList = if (results?.values == null){
+                    ArrayList()
+               }else{
+                   results.values as ArrayList<Products>
+
+               }
+                notifyDataSetChanged()
+            }
+
+        }
+    }
+
 
 
 

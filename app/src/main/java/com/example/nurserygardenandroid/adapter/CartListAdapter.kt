@@ -17,6 +17,7 @@ import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.ui.activity.CartActivity
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import com.example.nurserygardenandroid.utils.ProdConstants
 import kotlinx.android.synthetic.main.cartlist_item.view.*
 import kotlinx.coroutines.channels.consumesAll
@@ -64,7 +65,7 @@ class CartListAdapter(val context:Context, val list:List<Products>): RecyclerVie
                             deleteItem(holder.adapterPosition)
 //                            notifyItemRemoved(holder.adapterPosition)
                         }else{
-                            Toast.makeText(context, "Can't remove ", Toast.LENGTH_SHORT).show()
+                            (context as CartActivity).showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                         }
                     }
 
@@ -97,7 +98,7 @@ class CartListAdapter(val context:Context, val list:List<Products>): RecyclerVie
 
                         }else{
                             activity.dismissProgressBar()
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+                            context.showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
 
                         }
                         activity.dismissProgressBar()
@@ -133,7 +134,7 @@ class CartListAdapter(val context:Context, val list:List<Products>): RecyclerVie
 //                            notifyItemChanged(holder.adapterPosition, response.body())
                         }else{
                             activity.dismissProgressBar()
-                            Toast.makeText(context, "cannot", Toast.LENGTH_SHORT).show()
+                            context.showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
 
                         }
                     }

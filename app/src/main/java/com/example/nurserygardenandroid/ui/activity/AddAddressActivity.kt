@@ -8,6 +8,7 @@ import com.example.nurserygardenandroid.model.user.UserProfile
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import kotlinx.android.synthetic.main.activity_add_address.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,7 +46,7 @@ class AddAddressActivity : BaseActivity() {
                             finish()
                         }else{
                             dismissProgressBar()
-                            Toast.makeText(this@AddAddressActivity, "Internal", Toast.LENGTH_SHORT).show()
+                            showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                         }
                     }
 

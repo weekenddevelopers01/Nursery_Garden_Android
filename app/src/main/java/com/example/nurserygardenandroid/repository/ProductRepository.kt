@@ -5,15 +5,15 @@ import com.example.nurserygardenandroid.network.NetworkLayer
 
 class ProductRepository {
 
-    suspend fun getProducts(): List<Products>? {
-        val request =NetworkLayer.apiClient.getProducts()
-
-        if (request.isSuccessful){
-            return  request.body()!!
-        }
-
-        return null
-    }
+//    suspend fun getProducts(): List<Products>? {
+//        val request =NetworkLayer.apiClient.getProducts()
+//
+//        if (request.isSuccessful){
+//            return  request.body()!!
+//        }
+//
+//        return null
+//    }
 
     suspend fun getWishlist(authorization:String):List<Products>?{
         val request = NetworkLayer.apiClient.getWishlist(authorization)

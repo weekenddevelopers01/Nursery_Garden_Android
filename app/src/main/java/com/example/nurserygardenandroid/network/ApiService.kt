@@ -79,7 +79,7 @@ interface ApiService {
         Product related calls like getAll products, get only one products by its id
      */
     @GET("/products")
-    suspend fun getProducts(): Response<List<Products>>
+     fun getProducts(): Call<ArrayList<Products>>
 
     @GET("/product/{pid}")
     fun getSelectedProduct(@Path(Constants.PATH_PID) id:String): Call<Products>

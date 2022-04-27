@@ -18,6 +18,7 @@ import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.ui.fragment.home.CustomAdapter
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import com.example.nurserygardenandroid.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_wish_list.*
 import retrofit2.Call
@@ -73,7 +74,7 @@ class WishListActivity : BaseActivity() {
                         recyclerView()
                         Toast.makeText(this@WishListActivity, "Item Moved to Cart", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(this@WishListActivity, "Cannot move", Toast.LENGTH_SHORT).show()
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
                 }
 
@@ -93,7 +94,7 @@ class WishListActivity : BaseActivity() {
                         recyclerView()
                         Toast.makeText(this@WishListActivity, "Removed", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(this@WishListActivity, "Cannot Remove", Toast.LENGTH_SHORT).show()
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
                 }
 

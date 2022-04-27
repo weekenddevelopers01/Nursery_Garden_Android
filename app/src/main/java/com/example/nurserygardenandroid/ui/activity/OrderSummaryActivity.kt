@@ -14,6 +14,7 @@ import com.example.nurserygardenandroid.model.user.Address
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import com.example.nurserygardenandroid.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_order_summary.*
 import kotlinx.android.synthetic.main.activity_order_summary.deliveryCharge
@@ -84,7 +85,6 @@ class OrderSummaryActivity : BaseActivity() {
     fun btn_confirm_order(view: android.view.View) {
         val orderItem: ArrayList<OrderItem> = ArrayList()
 
-        Toast.makeText(this, "yes here", Toast.LENGTH_SHORT).show()
 
         for(i in list){
             var item = OrderItem(null, null, i._id, null, null, i.qty, null)
@@ -116,6 +116,8 @@ class OrderSummaryActivity : BaseActivity() {
                     override fun onResponse(call: Call<Order>, response: Response<Order>) {
                         if(response.isSuccessful){
                             orderPlaced()
+                        }else{
+                            showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                         }
                     }
 

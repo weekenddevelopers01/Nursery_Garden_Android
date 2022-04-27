@@ -15,12 +15,12 @@ class ProductViewModel : ViewModel() {
     private val _getProducts = MutableLiveData<List<Products>?>()
     val getProducts: LiveData<List<Products>?> = _getProducts
 
-    fun refresh(){
-        viewModelScope.launch {
-            val response = repository.getProducts()
-            _getProducts.postValue(response)
-        }
-    }
+//    fun refresh(){
+//        viewModelScope.launch {
+//            val response = repository.getProducts()
+//            _getProducts.postValue(response)
+//        }
+//    }
 
 
     fun getWishList(autherization:String){

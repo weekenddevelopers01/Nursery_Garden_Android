@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nurserygardenandroid.R
 import com.example.nurserygardenandroid.adapter.OrderAdapter
@@ -11,6 +12,7 @@ import com.example.nurserygardenandroid.model.order.Order
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.utils.Constants
+import com.example.nurserygardenandroid.utils.ErrorUtils
 import kotlinx.android.synthetic.main.activity_order.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +24,7 @@ class OrderActivity : BaseActivity() {
         setContentView(R.layout.activity_order)
 
 
-        setRecyclerView()
+//        setRecyclerView()
 //        val imageBytes = Base64.decode(bufferStr, Base64.DEFAULT)
 //        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 //        bufferImage.setImageBitmap(decodedImage)
@@ -44,6 +46,8 @@ class OrderActivity : BaseActivity() {
                         val adapter = OrderAdapter(this@OrderActivity, response.body()!!)
                         orderRecyclerview.adapter = adapter
 
+                    }else{
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
 
                     dismissProgressBar()
@@ -51,11 +55,17 @@ class OrderActivity : BaseActivity() {
 
                 override fun onFailure(call: Call<List<Order>>, t: Throwable) {
                     dismissProgressBar()
+
                 }
 
 
             })
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setRecyclerView()
     }
 
 

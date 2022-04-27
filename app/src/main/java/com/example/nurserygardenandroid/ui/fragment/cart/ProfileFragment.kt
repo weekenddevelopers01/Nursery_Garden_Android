@@ -14,6 +14,7 @@ import com.example.nurserygardenandroid.model.user.UserAuth
 import com.example.nurserygardenandroid.network.NetworkLayer
 import com.example.nurserygardenandroid.sharedpreference.SharedPref
 import com.example.nurserygardenandroid.ui.activity.*
+import com.example.nurserygardenandroid.ui.fragment.BlankFragment
 import com.example.nurserygardenandroid.utils.Constants
 import com.example.nurserygardenandroid.utils.ErrorUtils
 import kotlinx.android.synthetic.main.profile_fragment.view.*
@@ -21,7 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BlankFragment() {
 
 
     private var _binding: ProfileFragmentBinding? = null

@@ -89,10 +89,12 @@ class ApiClient(private  val apiService: ApiService) {
         Product Routes
      */
 
-    suspend fun getProducts(): Response<List<Products>>{
+//     fun getProducts(): Response<List<Products>>{
+//        return  apiService.getProducts()
+//    }
+    fun getProducts(): Call<ArrayList<Products>>{
         return  apiService.getProducts()
     }
-
     fun getSelectedProduct(pid:String):Call<Products>{
         return  apiService.getSelectedProduct(pid)
     }

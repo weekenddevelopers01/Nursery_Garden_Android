@@ -39,7 +39,7 @@ class EditProfileActivity : BaseActivity() {
                         edit_txt_emil.setText(user?.email)
                         edit_txt_phone.setText(user?.phone)
                     }else{
-                        Toast.makeText(baseContext, ErrorUtils.errorBody(response.errorBody()!!), Toast.LENGTH_SHORT).show()
+                        showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                     }
                 }
 
@@ -78,7 +78,7 @@ class EditProfileActivity : BaseActivity() {
                         .setUserDeails(fullName, map[Constants.USERPROFILE_PHONE] as String, map[Constants.USERPROFILE_EMAIL]as String)
                     finish()
                 }else{
-                    Toast.makeText(this@EditProfileActivity, ErrorUtils.errorBody(response.errorBody()!!), Toast.LENGTH_SHORT).show()
+                    showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), true)
                 }
             }
 

@@ -43,7 +43,7 @@ class CompleteProfileActivity : BaseActivity() {
                     next()
                 }else{
                     dismissProgressBar()
-                    Toast.makeText(baseContext, ErrorUtils.errorBody(response.errorBody()!!), Toast.LENGTH_SHORT).show()
+                    showSnackBar(ErrorUtils.errorBody(response.errorBody()!!), false)
                 }
 
             }
