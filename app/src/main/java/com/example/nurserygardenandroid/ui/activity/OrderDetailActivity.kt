@@ -27,7 +27,6 @@ class OrderDetailActivity : BaseActivity() {
 
         setView()
 
-        Toast.makeText(this, ""+intent.getStringExtra(Constants.EXTRA_ORDER_ID), Toast.LENGTH_SHORT).show()
     }
 
     private fun setView() {
